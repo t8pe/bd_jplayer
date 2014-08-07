@@ -71,16 +71,17 @@ function bd_register_plugin_styles(){
 // Actually this one is a bit better I think, as it's using single_template instead of template_redirect:
 // I can use the same one for song as well.
 
-function get_album_post_type_template($single_template) {
+
+function get_playlist_post_type_template($single_template) {
  global $post;
 
- if ($post->post_type == 'album') {
-      $single_template = dirname( __FILE__ ) . '/includes/templates/single-album.php';
+ if ($post->post_type == 'playlist') {
+      $single_template = dirname( __FILE__ ) . '/includes/templates/single-playlist.php';
  }
  return $single_template;
 }
 
-add_filter( "single_template", "get_album_post_type_template" ) ;
+add_filter( "single_template", "get_playlist_post_type_template" ) ;
 
 //Template fallback
 /* add_action("template_redirect", 'bd_jplayer_theme_redirect'); */
